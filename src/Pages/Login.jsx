@@ -8,7 +8,7 @@ const Login = () => {
                 <p>Logo</p>
                 <img src={mode} alt="mode" />
             </header>
-            <div className="grid grid-cols-1 md:grid-cols-2 h-screen md:h-screen">
+            <div className="grid grid-cols-1 md:grid-cols-2 h-full md:h-[86vh] md:px-8">
                 <LeftSide />
                 <RightSide />
             </div>
