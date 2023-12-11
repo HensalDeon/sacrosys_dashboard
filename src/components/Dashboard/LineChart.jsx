@@ -1,17 +1,66 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Legend, Tooltip } from "chart.js";
-import { month, day, buttons } from "../../constants/data";
+import { buttons } from "../../constants/data";
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Legend, Tooltip);
 
 const LineChart = () => {
     const [activeButton, setActiveButton] = useState(1);
-    const [chartData, setChartData] = useState(day);
+    const [toggle, setToggle] = useState("day");
+    const [chartData, setChartData] = useState({
+        labels: [],
+        datasets: [
+            {
+                label: "AED",
+                data: [],
+                backgroundColor: "transparent",
+                borderColor: "rgb(75, 192, 192)",
+                pointBorderColor: "transparent",
+                pointBorderWidth: 4,
+                pointHoverBackgroundColor: "#131313",
+                pointHoverRadius: 8,
+                tension: 0.4,
+            },
+        ],
+    });
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const url =
+                    toggle == "day"
+                        ? "https://fakestoreapi.com/products?limit=13"
+                        : "https://fakestoreapi.com/products?sort=desc&limit=13";
+                const response = await fetch(url, {
+                    method: "GET",
+                });
+                const result = await response.json();
+                const newData = {
+                    labels: result.map((item, index) => index),
+                    datasets: [
+                        {
+                            ...chartData.datasets[0],
+                            data: result.map((item) => item.rating.count),
+                        },
+                    ],
+                };
+                setChartData(newData);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+        fetchData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [toggle]);
 
     const handleButtonClick = (buttonId) => {
         setActiveButton(buttonId);
-        buttonId == "1" ? setChartData(day) : setChartData(month);
+        buttonId == "1" ? setToggle("day") : setToggle("month");
+    };
+    const getMonthName = (monthIndex) => {
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        return months[monthIndex];
     };
 
     const options = {
@@ -19,6 +68,17 @@ const LineChart = () => {
             legend: false,
             datalabels: {
                 display: false,
+            },
+            tooltip: {
+                callbacks: {
+                    label: (tooltipItem) => {
+                        const monthIndex = tooltipItem.dataIndex;
+                        const monthName = getMonthName(monthIndex);
+                        const value = tooltipItem.formattedValue;
+                        tooltipItem.label = monthName;
+                        return [`${monthName}`, `${value} AED`];
+                    },
+                },
             },
         },
         scales: {

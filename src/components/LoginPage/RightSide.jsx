@@ -4,6 +4,7 @@ import cross from "../../assets/crossEye.svg";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 const RightSide = () => {
     const [toggle, setToggle] = useState(false);
@@ -39,11 +40,31 @@ const RightSide = () => {
     };
     return (
         <div className="h-full flex flex-col justify-center items-center gap-10 md:gap-20">
-            <p className="text-xl text-center">
+            <motion.p
+                className="text-xl text-center"
+                initial={{ y: -100, x:100, opacity: 0 }}
+                animate={{ y: 0, x:0, opacity: 1 }}
+                transition={{
+                    type: "spring",
+                    damping: 7,
+                    stiffness: 40,
+                    restDelta: 0.001,
+                    duration: 0.3,
+                }}
+            >
                 &#34;Welcome to the future of restaurant reporting! We&#39;re serving up a fresh approach to streamline your
                 restaurant management, making data deliciously easy to digest.&#34;
-            </p>
-            <form
+            </motion.p>
+            <motion.form
+                initial={{ x: 100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{
+                    type: "spring",
+                    damping: 7,
+                    stiffness: 40,
+                    restDelta: 0.001,
+                    duration: 0.3,
+                }}
                 className="flex flex-col bg-[#2F2F2F] justify-center items-center p-4 rounded-2xl w-[19rem] shadow-[#2F2F2F] shadow-lg relative"
                 onSubmit={formik.handleSubmit}
             >
@@ -87,7 +108,7 @@ const RightSide = () => {
                 <p className="text-[10px] text-center px-6">
                     By continuing. you agree to (name)&#39;s <b>Terms of service</b> and <b>Privacy policy</b>
                 </p>
-            </form>
+            </motion.form>
         </div>
     );
 };
