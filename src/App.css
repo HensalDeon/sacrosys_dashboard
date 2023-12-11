@@ -1,7 +1,21 @@
 .button-active {
-    @apply md:py-2 md:px-4 py-0 px-2 bg-white rounded-lg text-[#0D0D0D] text-xs font-bold;
+    @apply md:py-1 md:px-4 py-0 px-2 bg-white rounded-lg text-[#0D0D0D] text-xs font-bold;
 }
 
 .button {
-    @apply md:py-2 md:px-4 py-0 px-2 rounded-lg text-xs font-bold;
+    @apply md:py-1 md:px-4 py-0 px-2 rounded-lg text-xs font-bold;
+}
+
+.card {
+    @apply w-full rounded-lg bg-[#141414] py-4 px-5 flex flex-col transition-transform transform hover:scale-105 duration-500;
+    box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.08);
+}
+
+.shad {
+    box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.08);
+}
+
+.chart-container .chartjs-render-monitor ul {
+    font-size: 4px !important;
+    position: absolute !important;
 }
