@@ -5,6 +5,13 @@
 .button {
     @apply md:py-1 md:px-4 py-0 px-2 rounded-lg text-xs font-bold;
 }
+.navbutton-active {
+    @apply md:py-1 md:px-3 py-1 md:h-9 h-6 px-2 bg-white rounded-lg text-[#0D0D0D] text-sm font-medium;
+}
+
+.navbutton {
+    @apply md:py-1 md:px-3 py-0 px-2 rounded-lg text-sm;
+}
 
 .card {
     @apply w-full rounded-lg bg-[#141414] py-4 px-5 flex flex-col transition-transform transform hover:scale-105 duration-500;

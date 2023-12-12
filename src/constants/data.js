@@ -1,4 +1,4 @@
-
+export const Lnavs = ["Dashboard", "Sales", "Payment", "Tax","MIS", "Purchase entry" ]
 export const buttons = [
     { id: 1, label: "Day" },
     { id: 2, label: "Month" },
