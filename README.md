@@ -13,6 +13,7 @@
 ## Overview
 
 This is a simple web application vite + React that includes a login page for authentication, built using Yup and Formik and styled with Tailwind CSS. Additionally, there is a dashboard page featuring line charts, horizontal bar charts, and doughnut charts powered by React Chart.js. The project also utilizes a mock API for fetching data and incorporates Framer Motion for animations.
+See the preview [here](https://sacrosys-dashboard.netlify.app/)
 
 ## Technologies Used
 
