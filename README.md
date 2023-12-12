@@ -2,14 +2,13 @@
 <table>
   <tr>
     <td>
-      <img width="400" alt="Image 1" src="https://github.com/HensalDeon/sacrosys_dashboard/assets/120702682/86a875a0-0824-48ea-9f4b-b581a2cc0450">
+      <img width="500" alt="Image 1" src="https://github.com/HensalDeon/sacrosys_dashboard/assets/120702682/86a875a0-0824-48ea-9f4b-b581a2cc0450">
     </td>
     <td>
-      <img width="400" alt="Image 2" src="https://github.com/HensalDeon/sacrosys_dashboard/assets/120702682/59c9e8a1-c984-471a-9d24-41e021e6c57e">
+      <img width="500" alt="Image 2" src="https://github.com/HensalDeon/sacrosys_dashboard/assets/120702682/59c9e8a1-c984-471a-9d24-41e021e6c57e">
     </td>
   </tr>
 </table>
-# Mini Project Readme
 
 ## Overview
 
